@@ -1,0 +1,20 @@
+{
+  "name": "github-lab",
+  "version": "1.0.0",
+  "description": "Github Lab Project",
+  "main": "app.js",
+  "scripts": {
+    "start":  "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adeelkhan-devops/github-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adeelkhan-devops/github-lab/issues"
+  },
+  "homepage": "https://github.com/adeelkhan-devops/github-lab#readme"
+}
