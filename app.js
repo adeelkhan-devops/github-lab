@@ -1,17 +1,24 @@
 const http = require('http');
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
+const APP_TITLE = process.env.APP_TITLE || "Hello DevOps!";
+const COMPANY_NAME = process.env.COMPANY_NAME || "Microsoft Azure";
+const ENVIRONMENT = process.env.ENVIRONMENT || "Development";
+const VERSION = process.env.VERSION || "1.0.0";
 
-  res.end(`
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+
+    res.end(`
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello DevOps</title>
+
+<title>${APP_TITLE}</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -26,43 +33,49 @@ body{
     justify-content:center;
     align-items:center;
     height:100vh;
-    text-align:center;
 }
 
 .container{
-    width:100%;
+    text-align:center;
 }
 
 h1{
-    font-size:5rem;
-    font-weight:800;
-    letter-spacing:2px;
+    font-size:6rem;
+    color:white;
 }
 
 h2{
     font-size:8rem;
-    font-weight:900;
     color:#27e87b;
-    margin-top:10px;
+    margin-bottom:25px;
 }
 
-p{
-    margin-top:40px;
-    font-size:2rem;
-    color:#e5e5e5;
+.info{
+    margin-top:30px;
+    font-size:1.8rem;
+    line-height:2.2;
+    color:#ececec;
 }
 
-.heart{
-    color:red;
+.label{
+    color:#27e87b;
+    font-weight:bold;
 }
 
 .line{
-    width:250px;
+    width:260px;
     height:3px;
     background:#27e87b;
     margin:35px auto;
-    border-radius:10px;
+    border-radius:20px;
 }
+
+.footer{
+    margin-top:40px;
+    font-size:1.2rem;
+    color:#bfbfbf;
+}
+
 </style>
 
 </head>
@@ -77,11 +90,30 @@ p{
 
 <div class="line"></div>
 
-<p>Deployed with <span class="heart">❤️</span> to Microsoft Azure</p>
+<div class="info">
+
+<div><span class="label">Application :</span> ${APP_TITLE}</div>
+
+<div><span class="label">Environment :</span> ${ENVIRONMENT}</div>
+
+<div><span class="label">Company :</span> ${COMPANY_NAME}</div>
+
+<div><span class="label">Version :</span> ${VERSION}</div>
+
+<div><span class="label">Server Time :</span> ${new Date().toLocaleString()}</div>
+
+</div>
+
+<div class="footer">
+
+Deployed with ❤️ to Microsoft Azure
+
+</div>
 
 </div>
 
 </body>
+
 </html>
 `);
 });
