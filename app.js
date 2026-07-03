@@ -3,7 +3,7 @@ const http = require('http');
 const APP_TITLE = process.env.APP_TITLE || "Hello DevOps!";
 const COMPANY_NAME = process.env.COMPANY_NAME || "Microsoft Azure";
 const ENVIRONMENT = process.env.ENVIRONMENT || "Development";
-const VERSION = process.env.VERSION || "1.0.0";
+const VERSION = process.env.VERSION || "1.0.1";
 
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
