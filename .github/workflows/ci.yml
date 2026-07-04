@@ -25,4 +25,4 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push adeeldockerhub/github-img: latest .
+          docker push adeeldockerhub/github-img: latest
