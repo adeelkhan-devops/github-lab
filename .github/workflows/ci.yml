@@ -20,7 +20,9 @@ jobs:
             password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build -t adeeldockerhub/github-img: latest .
+        run:
+          docker build -t adeeldockerhub/github-img: latest .
 
       - name: Push Docker Image
-        run: docker push adeeldockerhub/github-img: latest
+        run:
+          docker push adeeldockerhub/github-img: latest
