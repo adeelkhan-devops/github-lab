@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Docker CI
 
 on:
   push:
@@ -6,20 +6,23 @@ on:
       - main
 
 jobs:
-  build:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Login to Docker hub
+        uses: docker/login-action@v3
         with:
-          node-version: 22
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Install dependencies
-        run: npm install
+      - name: Build Docker Image
+        run: |
+          docker build -t adeeldockerhub/github-img: latest .
 
-      - name: Check application syntax
-        run: node --check app.js
+      - name: Push Docker Image
+        run: |
+          docker push adeeldockerhub/github-img: latest
