@@ -26,12 +26,12 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push adeeldockerhub/github-img:latest
-       - name: Azure Login
-         uses: azure/login@v2
-         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_76B6C36D738846C39F272089B9096C49 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_76B6C36D738846C39F272089B9096C49 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_76B6C36D738846C39F272089B9096C49 }}
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E65982B193414DF3BB8CCD25E7442CDF }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_354D1830CC384CCA8191E2DE3BB93CF0 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6D10DB7402FD4C99A66C3BAE6695BD48 }}
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
