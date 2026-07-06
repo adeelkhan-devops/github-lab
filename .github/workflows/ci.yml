@@ -34,9 +34,10 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E65982B193414DF3BB8CCD25E7442CDF }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_354D1830CC384CCA8191E2DE3BB93CF0 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6D10DB7402FD4C99A66C3BAE6695BD48 }}
-      - name: Show Azure Account
+      - name: Verify Azure Login
         run: |
-         az account show
+       az account show
+       az webapp list --output table
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
